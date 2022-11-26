@@ -1,0 +1,53 @@
+<main>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="card-body">
+          <div class="card-body">
+            <h1>Tipos</h1>
+            <a href="/create-tipos" class="btn btn-primary my-2">
+              Añadir un nuevo Tipo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-0">
+
+        {{#each tipos as |tipo|}}
+
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="card-body">
+                  <h5 class="card-text text-muted"><strong>Tipo</strong></h5>
+                  <a>{{tipo.tipos}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="card-body">
+                  <a href="/edit-tipos/{{tipo.id}}?edit=true" class="btn btn-warning">Editar</a>
+
+                  <form class="form-inline" action="/delete-tipos" method="post">
+                    <input type="hidden" name="tiposId" value="{{tipo.id}}" />
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,53 @@
+<main>
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="card-body">
+          <div class="card-body">
+            <h1>Regiones</h1>
+            <a href="/create-regiones" class="btn btn-primary my-2">
+              Añadir una nueva region
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-0">
+
+        {{#each regiones as |region|}}
+
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <div class="card-body">
+                <div class="card-body">
+                  <h5 class="card-text text-muted"><strong>Region</strong></h5>
+                  <a>{{region.regiones}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="card-body">
+                  <a href="/edit-regiones/{{region.id}}?edit=true" class="btn btn-warning">Editar</a>
+
+                  <form class="form-inline" action="/delete-regiones" method="post">
+                    <input type="hidden" name="regionesId" value="{{region.id}}" />
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>

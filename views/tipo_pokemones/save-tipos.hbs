@@ -1,0 +1,41 @@
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                {{#if editMode}}Edicion{{else}}Creacion{{/if}} de tipos
+            </div>
+            <div class="card-body">
+
+                <form method="POST" action="{{#if
+                    editMode}}/edit-tipos{{else}}/create-tipos{{/if}}">
+                    
+                    <div class="mb-3">
+                        <label for="tipo" class="form-label">Tipo:</label>
+                        <input type="text" class="form-control" id="tipo"
+                            name="Tipo"
+                            value="{{#if editMode}}{{tipo.tipos}}{{/if}}" />
+                    </div>
+                    {{#if editMode}}
+
+                    <input type="hidden" name="tipoId" value="{{tipo.id}}">
+                    {{/if}}
+
+                    <button type="submit" class="btn btn-primary">{{#if
+                        editMode}}editar{{else}}Crear{{/if}}</button>
+
+
+                    <a href="/tipo_pokemones" type="button" class="btn
+                        btn-warning">Tipos pokemones</a>
+                    <a href="/" type="button" class="btn btn-warning">Home</a>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6"></div>
+
+</div>

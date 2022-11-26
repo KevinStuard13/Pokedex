@@ -1,0 +1,86 @@
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                {{#if editMode}}Edicion{{else}}Creacion{{/if}} de pokemones
+            </div>
+            <div class="card-body">
+
+                <form method="POST" action="{{#if editMode}}/edit-pokemones{{else}}/create-pokemones{{/if}}">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Url:</label>
+                        <input type="text" class="form-control" id="image" name="ImageUrl"
+                            value="{{#if editMode}}{{pokemones.imagenes}}{{/if}}" />
+                    </div>
+                    <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo:</label>
+                    <select type="text" class="form-control" id="tipo" name="Tipo" value="{{#if editMode}}{{pokemones.tipos}}{{/if}}">
+                        <option selected>Seleccione un tipo</option>
+                        <option>Bicho</option>
+                        <option>Dragón</option>
+                        <option>Eléctrico</option>
+                        <option>Hada</option>
+                        <option>Lucha</option>
+                        <option>Fuego</option>
+                        <option>Volador</option>
+                        <option>Fantasma</option>
+                        <option>Planta</option>
+                        <option>Tierra</option>
+                        <option>Hielo</option>
+                        <option>Normal</option>
+                        <option>Veneno</option>
+                        <option>Psíquico</option>
+                        <option>Roca</option>
+                        <option>Acero</option>
+                        <option>Agua</option>
+                    </select></div>
+
+                    <div class="mb-3">
+                        <label for="region" class="form-label">Region:</label>
+                        <select class="form-select" id="region" name="Region"
+                            value="{{#if editMode}}{{pokemones.regiones}}{{/if}}">
+                        <option selected>Seleccione una region</option>
+                        <option>Kanto</option>
+                        <option>Johto</option>
+                        <option>Hoenn</option>
+                        <option>Sinnoh</option>
+                        <option>Teselia/Unova</option>
+                        <option>Kalos</option>
+                        <option>Alola</option>
+                        <option>Galar</option>
+                    </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="name" name="Name"
+                            value="{{#if editMode}}{{pokemones.name}}{{/if}}" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripcion:</label>
+                        <textarea class="form-control" name="Descripcion" id="descripcion" cols="30"
+                            rows="4">{{#if editMode}}{{pokemones.descripcion}}{{/if}}</textarea>
+                    </div>
+
+                    {{#if editMode}}
+
+                    <input type="hidden" name="pokemonesId" value="{{pokemones.id}}">
+
+                    {{/if}}
+
+                    <button type="submit" class="btn btn-primary">{{#if editMode}}editar{{else}}Crear{{/if}}</button>
+                    <a href="/pokemones" type="button" class="btn btn-warning">Pokemones</a>
+                    <a href="/" type="button" class="btn btn-warning">Home</a>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6"></div>
+
+</div>
